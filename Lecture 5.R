@@ -41,7 +41,6 @@ sp + geom_point() + stat_smooth(method=lm)
 
 # control the confident interval
 sp + geom_point() + stat_smooth(method=lm, level=0.99)
-sp + geom_point() + stat_smooth(method=lm, level=0.90)
 sp + geom_point() + stat_smooth(method=lm, se=FALSE) # none
 
 # emphasize the fit line with color
@@ -50,11 +49,12 @@ sp + geom_point(colour="blue") +
 
 
 # non-linear smoothing (LOESS)
-sp + geom_point(colour="grey60") + stat_smooth() # same as below, because LOESS is default
+sp + geom_point(colour="grey60") + stat_smooth() # same as below
 sp + geom_point(colour="grey60") + stat_smooth(method=loess)
 
 # no confidence region, black line on grey
-sp + geom_point(colour="grey60") + stat_smooth(colour="black", se=FALSE) # same as below
+sp + geom_point(colour="grey60") +
+  stat_smooth(colour="black", se=FALSE) # same as below
 
 # map size to points on scatterplot
 # we have age and height, so let's do weight to size of point
